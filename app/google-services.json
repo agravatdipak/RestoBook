@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "602483376061",
+    "project_id": "restobook-b10bf",
+    "storage_bucket": "restobook-b10bf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602483376061:android:af03cd3c49d34f0ef1dcd4",
+        "android_client_info": {
+          "package_name": "com.office.restobook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxOg4jgjzQ17DD77EgwlW-olVUrbhiPiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
