@@ -1,0 +1,34 @@
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Dark Mode Palette (User's preferred theme) -->
+    <color name="primary">#FFC107</color> <!-- Vibrant Amber/Yellow -->
+    <color name="on_primary">#121212</color>
+    <color name="primary_container">#332D15</color>
+    <color name="on_primary_container">#FFE082</color>
+
+    <color name="secondary">#FFD54F</color>
+    <color name="on_secondary">#000000</color>
+    <color name="secondary_container">#424242</color>
+    
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="surface_variant">#2C2C2C</color>
+    <color name="on_surface">#FFFFFF</color>
+    <color name="on_surface_variant">#BDBDBD</color>
+    <color name="outline">#424242</color>
+    
+    <color name="card_surface">#252525</color>
+    <color name="accent_orange">#FF8F00</color>
+
+    <color name="green_success">#81C784</color>
+    <color name="red_error">#E57373</color>
+
+    <!-- Category & Vibrant Accents (Dark Mode) -->
+    <color name="cat_teal_bg">#1A4545</color>
+    <color name="cat_teal_text">#4DB6AC</color>
+    <color name="cat_orange_bg">#45321A</color>
+    <color name="cat_orange_text">#FFB74D</color>
+    <color name="cat_blue_bg">#1A2E45</color>
+    <color name="cat_blue_text">#64B5F6</color>
+</resources>
