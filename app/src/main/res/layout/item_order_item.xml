@@ -1,23 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardCornerRadius="12dp">
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/outline"
+    app:cardBackgroundColor="@color/surface">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="12dp"
-        android:paddingStart="12dp">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/item_name_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="@color/on_surface"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/quantity_controls"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,10 +31,12 @@
             android:id="@+id/item_price_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="@color/on_surface_variant"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_name_text"
-            tools:text="₹10 x 2" />
+            tools:text="₹120 x 2" />
 
         <LinearLayout
             android:id="@+id/quantity_controls"
@@ -38,41 +44,46 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
+            android:background="@drawable/shape_rounded_rect"
+            android:backgroundTint="@color/surface_variant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/minus_button"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:gravity="center"
                 android:text="−"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:textColor="@color/primary"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/quantity_text"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="5dp"
-                android:paddingVertical="5dp"
-                tools:text="2" />
+                android:minWidth="32dp"
+                android:gravity="center"
+                android:text="2"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"/>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/plus_button"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:gravity="center"
                 android:text="+"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:textColor="@color/primary"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
 
         </LinearLayout>
 
@@ -80,12 +91,13 @@
             android:id="@+id/item_total_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textAppearance="@style/TextAppearance.Material3.TitleMedium.Emphasized"
-            android:textColor="?attr/colorPrimary"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_price_text"
-            tools:text="₹20" />
+            tools:text="₹240" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

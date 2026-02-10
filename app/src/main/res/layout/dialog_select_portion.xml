@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="24dp"
-    app:cardElevation="0dp">
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/card_surface">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +21,8 @@
             android:text="Item Name"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/on_surface" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,7 +30,7 @@
             android:layout_marginTop="8dp"
             android:text="Choose Portion"
             android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
-            android:textColor="?attr/colorOnSurfaceVariant" />
+            android:textColor="@color/on_surface_variant" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,9 +46,9 @@
                 android:layout_marginEnd="8dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardBackgroundColor="@color/surface_variant"
                 app:cardCornerRadius="16dp"
-                app:strokeColor="?attr/colorPrimary"
+                app:strokeColor="@color/primary"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -61,13 +63,14 @@
                         android:text="HALF"
                         android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                         android:textStyle="bold"
-                        android:textColor="?attr/colorPrimary" />
+                        android:textColor="@color/primary" />
 
                     <TextView
                         android:id="@+id/price_half_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                        android:textColor="@color/on_surface"
                         android:text="₹0" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -80,9 +83,9 @@
                 android:layout_marginStart="8dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                app:cardBackgroundColor="@color/surface_variant"
                 app:cardCornerRadius="16dp"
-                app:strokeColor="?attr/colorPrimary"
+                app:strokeColor="@color/primary"
                 app:strokeWidth="1dp">
 
                 <LinearLayout
@@ -97,13 +100,14 @@
                         android:text="FULL"
                         android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                         android:textStyle="bold"
-                        android:textColor="?attr/colorPrimary" />
+                        android:textColor="@color/primary" />
 
                     <TextView
                         android:id="@+id/price_full_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                        android:textColor="@color/on_surface"
                         android:text="₹0" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

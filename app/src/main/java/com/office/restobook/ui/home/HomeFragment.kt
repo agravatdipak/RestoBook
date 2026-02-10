@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.office.restobook.R
 import com.office.restobook.RestoApplication
@@ -54,24 +52,24 @@ class HomeFragment : Fragment() {
         val calendar = java.util.Calendar.getInstance()
         val gujaratiLocale = java.util.Locale("gu", "IN")
 
-        val dateSdf = java.text.SimpleDateFormat("dd MMMM yyyy, EEEE", gujaratiLocale)
-//        val daySdf = java.text.SimpleDateFormat("EEEE", gujaratiLocale)
+        val dateSdf = java.text.SimpleDateFormat("dd MMMM yyyy", gujaratiLocale)
+        val daySdf = java.text.SimpleDateFormat("EEEE", gujaratiLocale)
 
         binding.dateText.text = dateSdf.format(calendar.time)
-//        binding.weekdayText.text = daySdf.format(calendar.time)
+        binding.dayText.text = daySdf.format(calendar.time)
     }
 
     private fun setupRecyclerView() {
         adapter = OrderAdapter(
             onClick = { order ->
-                val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailsFragment(order.id)
+                val action =
+                    HomeFragmentDirections.actionHomeFragmentToOrderDetailsFragment(order.id)
                 findNavController().navigate(action)
             },
             onLongClick = { order ->
                 showDeleteConfirmation(order)
             }
         )
-        binding.ordersRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.ordersRecyclerView.adapter = adapter
     }
 
@@ -79,7 +77,8 @@ class HomeFragment : Fragment() {
         viewModel.runningOrders.observe(viewLifecycleOwner) { orders ->
             adapter.submitList(orders)
             binding.emptyStateLayout.visibility = if (orders.isEmpty()) View.VISIBLE else View.GONE
-            binding.ordersRecyclerView.visibility = if (orders.isEmpty()) View.GONE else View.VISIBLE
+            binding.ordersRecyclerView.visibility =
+                if (orders.isEmpty()) View.GONE else View.VISIBLE
         }
     }
 
@@ -111,7 +110,8 @@ class HomeFragment : Fragment() {
             lifecycleScope.launch {
                 val orderId = viewModel.createOrder(name, type)
                 dialog.dismiss()
-                val action = HomeFragmentDirections.actionHomeFragmentToOrderDetailsFragment(orderId, true)
+                val action =
+                    HomeFragmentDirections.actionHomeFragmentToOrderDetailsFragment(orderId, true)
                 findNavController().navigate(action)
             }
         }

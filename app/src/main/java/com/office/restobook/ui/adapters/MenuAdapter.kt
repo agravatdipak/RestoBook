@@ -134,6 +134,19 @@ class MenuAdapter(
             binding.categoryTitleText.text = header.category
             binding.expandIcon.setImageResource(if (header.isExpanded) R.drawable.ic_expand_less else R.drawable.ic_expand_more)
             
+            // Apply vibrant colors based on category hash for "Colorful" look
+            val colors = listOf(R.color.cat_teal_text, R.color.cat_orange_text, R.color.cat_blue_text)
+            val bgs = listOf(R.color.cat_teal_bg, R.color.cat_orange_bg, R.color.cat_blue_bg)
+            val colorIdx = Math.abs(header.category.hashCode()) % colors.size
+            
+            val textColor = itemView.context.getColor(colors[colorIdx])
+            val bgColor = itemView.context.getColor(bgs[colorIdx])
+            
+            binding.leftAccent.setBackgroundColor(textColor)
+            binding.categoryTitleText.setTextColor(textColor)
+            binding.expandIcon.imageTintList = android.content.res.ColorStateList.valueOf(textColor)
+            // binding.root.setCardBackgroundColor(bgColor) // Optional: very colorful
+            
             binding.root.setOnClickListener {
                 if (expandedCategories.contains(header.category)) {
                     expandedCategories.remove(header.category)
@@ -163,10 +176,12 @@ class MenuAdapter(
                 binding.itemSwitch.visibility = android.view.View.GONE
                 binding.editButton.visibility = android.view.View.GONE
                 binding.deleteButton.visibility = android.view.View.GONE
+                binding.selectionAddIcon.visibility = android.view.View.VISIBLE
             } else {
                 binding.itemSwitch.visibility = android.view.View.VISIBLE
                 binding.editButton.visibility = android.view.View.VISIBLE
                 binding.deleteButton.visibility = android.view.View.VISIBLE
+                binding.selectionAddIcon.visibility = android.view.View.GONE
             }
 
             binding.itemSwitch.isChecked = menuItem.isActive

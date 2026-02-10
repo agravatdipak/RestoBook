@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@mipmap/ic_restobook" />
+            android:src="@drawable/ic_restobook" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,6 +51,8 @@
                 android:gravity="center"
                 android:inputType="numberPassword"
                 android:letterSpacing="0.5"
+                android:focusedByDefault="true"
+                android:imeOptions="actionDone"
                 android:maxLength="4"
                 android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium" />
 

@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.office.restobook.repository.OrderWithTotal
 import com.office.restobook.data.local.entities.Order
 import com.office.restobook.databinding.ItemOrderCardBinding
+import com.office.restobook.repository.OrderWithTotal
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 
 class OrderAdapter(
     private val onClick: ((Order) -> Unit)? = null,
@@ -18,7 +19,8 @@ class OrderAdapter(
 ) : ListAdapter<OrderWithTotal, OrderAdapter.OrderViewHolder>(OrderDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
-        val binding = ItemOrderCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemOrderCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return OrderViewHolder(binding)
     }
 
@@ -26,12 +28,13 @@ class OrderAdapter(
         holder.bind(getItem(position))
     }
 
-    inner class OrderViewHolder(private val binding: ItemOrderCardBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class OrderViewHolder(private val binding: ItemOrderCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(orderWithTotal: OrderWithTotal) {
             val order = orderWithTotal.order
             binding.customerNameText.text = order.customerName
-            binding.orderTypeText.text = order.orderType
-            
+            binding.orderTypeChip.text = order.orderType
+
             val sdf = SimpleDateFormat("hh:mm a", Locale.getDefault())
             binding.startTimeText.text = sdf.format(Date(order.startTime))
 
@@ -51,11 +54,13 @@ class OrderAdapter(
                 binding.root.setOnLongClickListener(null)
                 binding.root.isLongClickable = false
             }
-            
-            binding.paymentModeText.visibility = if (orderWithTotal.paymentMode != null) android.view.View.VISIBLE else android.view.View.GONE
+
+            binding.paymentModeText.visibility =
+                if (orderWithTotal.paymentMode != null) android.view.View.VISIBLE else android.view.View.GONE
             binding.paymentModeText.text = orderWithTotal.paymentMode ?: ""
-            
-            binding.billButton.visibility = if (onBillClick != null) android.view.View.VISIBLE else android.view.View.GONE
+
+            binding.billButton.visibility =
+                if (onBillClick != null) android.view.View.VISIBLE else android.view.View.GONE
             binding.billButton.setOnClickListener { onBillClick?.invoke(order) }
 
             binding.totalAmountText.text = String.format("₹%.0f", orderWithTotal.totalAmount)
@@ -63,9 +68,10 @@ class OrderAdapter(
     }
 
     class OrderDiffCallback : DiffUtil.ItemCallback<OrderWithTotal>() {
-        override fun areItemsTheSame(oldItem: OrderWithTotal, newItem: OrderWithTotal): Boolean = 
+        override fun areItemsTheSame(oldItem: OrderWithTotal, newItem: OrderWithTotal): Boolean =
             oldItem.order.id == newItem.order.id
-        override fun areContentsTheSame(oldItem: OrderWithTotal, newItem: OrderWithTotal): Boolean = 
+
+        override fun areContentsTheSame(oldItem: OrderWithTotal, newItem: OrderWithTotal): Boolean =
             oldItem == newItem
     }
 }
